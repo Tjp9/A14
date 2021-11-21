@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/cookie.jfif">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css"/>
+    <title>Cookie Data</title>
+
+    <script>
+
+        function setCookie(cname, cvalue) {
+            const d = new Date();
+            d.setTime(d.getTime() + 60 * 60 * 1000);
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookies() {
+            let user = getCookie("username");
+            if (user !== "") {
+                alert("Lol, get baited nerd I have your data " + user);
+            } else {
+                user = prompt("Hello There Please Enter Your Name Now or Face Immediate memes spam", "");
+                if (user !== "" && user != null) {
+                    setCookie("username", user, 1);
+                }
+            }
+        }
+    </script>
+</head>
+
+<header>
+    <div id="mainH">
+        <h1>A14 Cookies Being Displayed</h1>
+        <h2>Created By: Tyler Preston </h2>
+    </div>
+</header>
+
+<body onload="checkCookies()" ;>
+        <img src="images/"
+</body>
+
+<footer>
+        <p>&copy; 2021, Tyler Preston, NJIT, All Rights Reserved, Privacy Policy</p>
+</footer>
+
+</html>
